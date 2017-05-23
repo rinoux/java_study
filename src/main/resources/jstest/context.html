@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for context.js</title>
+    <script src="context.js"></script>
+    <script src="../js/underscore.js"></script>
+    <script type="application/javascript">
+    </script>
+    <script>
+        var narray = [2, 7,3, 145, 26, 1]
+        var items = _.sortBy(narray, num => Math.sqrt(num))
+        console.log(items)
+        narray = narray.sort((a, b) => Math.sqrt(a) > Math.sqrt(b)) //和上面一个意思
+        console.log(narray)
+        document.write(narray)
+
+    </script>
+    <link rel="stylesheet" href="../css/my.css">
+</head>
+<body>
+
+
+<p id="text">show</p>
+
+
+<form enctype="multipart/form-data">
+    <div>
+        <input type="file" name="file" multiple="multiple">
+    </div>
+</form>
+
+
+</body>
+</html>

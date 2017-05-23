@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo11</title>
+    <comment>使用ajax请求，通过回调函数处理请求响应数据到组件实例。<br>要点：使用jquery的回调函数时注意里面的this关键字应该指向react而不是jquery本身</comment>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+    <script src="../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var UserGist = React.createClass({
+        getInitialState : function () {
+            return {
+                username : '',
+                lastGistUrl : ''
+            };
+        },
+        componentDidMount : function () {
+            $.get(this.props.source, function (result) {//$.get(url, callback)
+                var lastGist = result[0];
+                if(this.isMounted()) {
+                    this.setState({
+                        username : lastGist.owner.login,
+                        lastGistUrl : lastGist.html_url
+                    });
+                }
+            }.bind(this));//bind(this)用于将jquery里的this重新指向当前react对象本身，而不是jquery
+        },
+        render : function () {
+            return <div>
+                {this.state.username}'s last gist is <a href={this.state.lastGistUrl}>{this.state.lastGistUrl}</a>
+            </div>
+        }
+    });
+
+    ReactDOM.render(
+        <UserGist source="https://api.github.com/users/octocat/gists"/>, document.getElementById('example')
+    );
+</script>
+
+</body>
+</html>

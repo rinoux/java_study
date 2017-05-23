@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+
+    <script src="../js/react/react.min.js"></script>
+    <script src="../js/react/react-dom.min.js"></script>
+    <script src="../js/broswer.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    const firstName = 'Jane';
+    console.log(`Hello ${firstName}!
+How are you
+today?`);
+
+    //React.createClass接受对象object参数
+    var Name = React.createClass({
+        render : function () {
+            return <h1>{this.props.name}</h1>;
+        }
+    });
+    var Link  = React.createClass({
+        render : function () {
+            return <a href={this.props.site}>{this.props.site}</a>;
+        }
+    });
+    var WebSite = React.createClass({
+        render : function () {
+            return <div>
+                <Name name={this.props.name}/>
+                <Link site={this.props.site}/>
+            </div>;
+        }
+    });
+    var LikeButton = React.createClass({
+        getInitialState : function () {
+            return {liked : false};
+        },
+
+        handleClick : function (event) {
+            this.setState({liked : !this.state.liked});
+        },
+
+        render : function () {
+            var text = this.state.liked ? "喜欢" : "不喜欢";
+            return <button onClick={this.handleClick}>
+                你<lockFunc1>{text}</lockFunc1>我
+            </button>;
+
+        }
+    });
+
+    var People = React.createClass({
+        getInitialState : function () {
+            return {name : "Tom", age : 24};
+        },
+
+        render : function () {
+            return <div>
+                <p>name is {this.state.name}</p>
+                <p>{this.state.age} years old</p>
+            </div>
+        }
+    });
+    var Input = React.createClass({
+        getInitialState : function () {
+            return {value : 'default'};
+        },
+        handleChange : function (event) {
+            this.setState({value : event.target.value});
+        },
+
+        render : function () {
+            var value = this.state.value;
+            return <div>
+                <input type="text" value={value} onChange={this.handleChange}/>
+                <p>{value}</p>
+            </div>
+        }
+    })
+    ReactDOM.render(
+            <Input />,
+            document.body
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo10</title>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        var Component1 = React.createClass({
+            getInitialState : function () {
+                return {opacity : 1.0};
+            },
+            componentDidMount : function () {
+                this.timer = setInterval(function () {//设置一个定时器，两个参数一个是要执行的函数，还有一个是间隔秒数
+                    var opacity = this.state.opacity;
+                    opacity -= .05;
+                    if (opacity < 0.1) {
+                        opacity = 1.0;
+                    }
+                    this.setState({opacity : opacity});
+                }.bind(this), 100)//100ms
+            },
+            render : function () {
+                return <div style={{opacity : this.state.opacity}}>
+                    hello! {this.props.name}
+                </div>
+            },
+        });
+
+        ReactDOM.render(<Component1 name="world"/>
+            , document.body);
+    </script>
+
+</body>
+</html>

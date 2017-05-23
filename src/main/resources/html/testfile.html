@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestFile</title>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var json = {"exception":"session is timeout","message":"session"};
+            json = eval(json)
+            $("p#test1").text(json.exception)
+
+            $("body").html("<div>hdhdhh</div>")
+
+            var t = null
+            alert(typeof t)
+
+            console.log(this == window)
+        })
+    </script>
+</head>
+<body>
+
+<p id="test1"></p>
+
+</body>
+</html>

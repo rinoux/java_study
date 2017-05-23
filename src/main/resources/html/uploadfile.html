@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function () {
+            this.element = $(document.body);
+            this.div = $('<div class="appleBasket"></div>').appendTo(this.element);
+            this.btn = $('<button name="button1" class="button"></button>');
+            this.div.append(this.btn);
+
+            this.inp = $('<input type="input" style="background-color: #3a8018">').appendTo(this.div);
+
+
+            /*
+
+            this.btn.bind({
+               mouseover: function () {
+                    alert("bind mouse over");
+               }
+            });
+
+            this.btn.on('mouseover', function () {
+                alert('on mouse over');
+            });
+            */
+            
+            this.btn.bind({
+                '自定义事件': function (event, arg1, arg2) {
+                    alert('事件名称：' + event + '事件参数：' + arg1 + '和' + arg2);
+                }
+            });
+
+            //this.btn.trigger('自定义事件', ['hello', 'world']);
+            this.inp.bind('focus', function () {
+                $("<span>Focused!</span>").appendTo(this.element).fadeOut(1000);
+            });
+
+
+            this.btn.click(function () {
+                this.inp.trigger('focus', function () {
+                    alert('trigger by trigger')
+                });
+            });
+
+            this.btn.click(function () {
+                this.inp.triggerHandler('focus', function () {
+                    alert('trigger by triggerHandler')
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+
+<button id="btn" type="button" style="background-color: #3c806d"></button>
+</body>
+</html>

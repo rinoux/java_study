@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo3</title>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var sentences = [
+            <div>hello, world!</div>,
+            <p>this is react test</p>
+        ];
+        ReactDOM.render(
+            <div>{sentences}</div>,
+            document.getElementById("example")
+        )
+    </script>
+
+</body>
+</html>

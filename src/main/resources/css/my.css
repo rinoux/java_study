@@ -1,0 +1,122 @@
+.important
+{
+    font-weight:bold;
+    font-size:xx-large;
+}
+
+@font-face {
+    font-family: 'fui';
+    src: url('http://localhost:8075/WebReport/ReportServer?op=resource&resource=/com/fr/fs/resources/fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    //url('http://localhost:8075/WebReport/ReportServer?op=resource&resource=/com/fr/fs/resources/fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('data:application/x-font-ttf;charset=utf-8;base64,') format('woff'),
+    // url('http://localhost:8075/WebReport/ReportServer?op=resource&resource=/com/fr/fs/resources/fonts/iconfont.ttf')  format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('data:application/x-font-ttf;charset=utf-8;base64,')  format('truetype'),
+    url('http://localhost:8075/WebReport/ReportServer?op=resource&resource=/com/fr/fs/resources/fonts/iconfont.svg#svgFontName') format('svg'); /*  iOS 4.1- */
+}
+
+.fr-fileupload {
+    position: absolute;
+    text-align: right;
+    right: 0;
+    cursor: pointer;
+    font-size: 100px;
+    top: 0;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity:0);
+    z-index: 2;
+}
+
+.fr-fileupload-image {
+    position: absolute;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    left: 0px;
+}
+
+.descendants *
+{
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+
+.blue
+{
+    color:blue;
+}
+#panel,#flip
+{
+    padding: 5px;
+    text-align: center;
+    background-color: bisque;
+    border: solid 1px #fff0a0;
+}
+#panel
+{
+    padding: 50px;
+    display: none;
+}
+
+
+.appleBasket{
+    width: 400px;
+    margin: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    >.title{
+     padding: 6px 0px;
+     text-align: center;
+     color: #069;
+     font-size: 20px;
+     //font-weight: 600;
+    }
+    >.stats{
+     width: 100%;
+     $border: 1px dashed #ddd;
+     border-top: $border;
+     border-bottom: $border;
+     padding: 10px 0px;
+         .section{
+             display: inline-block;
+             width: 50%;
+             padding-left: 8px;
+             .head{
+                 padding: 6px 0px;
+                 font-size: 16px;
+                 color: #069;
+             }
+             .content{
+                 font-size: 20px;
+                 font-weight: 200;
+             }
+             &:first-of-type{
+                  border-right: 1px solid #f0f0f0;
+              }
+          }
+      }
+     >.appleList{
+          padding: 10px 0px;
+          .empty-tip{
+              text-align: center;
+              font-size: 16px;
+              color: #ccc;
+              padding: 20px 0px;
+           }
+      }
+     >.btn-div{
+          text-align: center;
+          button{
+              color: #fff;
+              background-color: #096;
+              border: none;
+              font-size: 14px;
+              padding: 6px 40px;
+              border-radius: 6px;
+              margin: 20px auto;
+          }
+      }
+}

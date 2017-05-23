@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo7</title>
+    <comment>通过react特有的ref属性，用于绑定render输出的组件。<p>要点：<br>定义一个输入框，规定其ref属性，并通过另一个按钮事件通过ref属性绑定控制该输入框<br>this.refs.[refname]获得的是真实的do（render之后）</p></comment>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyComponent = React.createClass({
+            handleClick : function () {
+               this.refs.myTextInput.focus();
+            },
+            render : function () {
+                return <div>
+                    <input type="text" ref="myTextInput"/>
+                    <input type="button" value="点击获得输入框焦点" onClick={this.handleClick}/>
+                </div>;
+            }
+        });
+
+        ReactDOM.render(
+            <MyComponent />,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>

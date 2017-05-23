@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="gb2312">
+    <title>This is page for Ajax request</title>
+    <script src="../js/cookie-helper-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link href="../css/my.css" type="text/css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            $("body a").click(function () {
+                window.open("http://www.baidu.com")
+            })
+
+            setCookie("name", "rinoux", 1000)
+            $("div.descendants").ajaxStart(function () {
+                $("#wait").css("display", "block")
+            })
+            $("div.descendants").ajaxComplete(function () {
+                $("#wait").css("display", "none")
+            })
+            $("#btn_1").click(function () {
+                htmlText = $.ajax({url: "f.txt", async: false})
+                $("div.descendants").html(htmlText.responseText)
+            })
+            $("button#btn_2").click(function () {
+                $("p#loading").text("LOADING...")
+                $("div.descendants").load("https://mscom.demdex.net/dest5.html")
+            })
+
+            //document.write(document.getElementsByTagName("div").length)
+        })
+    </script>
+</head>
+<body>
+<a href="#">hahahhahah</a>
+<a href="#">bbbbbbb</a>
+
+
+<div class="descendants">the words would be changed if you press the button below</div>
+
+<button id="btn_1">CHANGE DIV TEXT/HTML BY AJAX</button>
+<button id="btn_2">CHANGE DIV TEXT WITH LOADING INDEX ICON</button>
+
+<div id="wait" style="display: block; width: 64px; height: 96px;  position: absolute; left: 100px; top: 50px; padding: 2px">
+    <img src="../img/demo_wait.gif" WIDTH="64" HEIGHT="64">
+    <p id="loading"></p>
+</div>
+
+</body>
+</html>

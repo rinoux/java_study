@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="GB2312">
+    <link rel="stylesheet" type="text/css" href="../css/my.css">
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var json = {"exception":"session is timeout","message":"session"};
+            json = eval(json)
+            //var json = eval(tt); //数组
+            $.each(json, function (index, item) {
+                //循环获取数据
+                var name = json[index].Name;
+                var idnumber = json[index].IdNumber;
+                var sex = json[index].Sex;
+                $("#text1").text(name)
+                //$("#list").html($("#list").html() + "<br>" + name + " - " + idnumber + " - " + sex + "<br/>");
+            });
+
+
+            $("#txt").text("loading")
+            $("#txt").ajaxStart(function(){
+                $("#wait").css("display","block");
+            });
+            $("#txt").ajaxComplete(function(){
+                $("#wait").css("display","none");
+            });
+            $("#txt").ajaxSuccess(function(){
+                alert("success")
+            });
+            $("#txt").click(function () {
+                alert("点我了")
+            })
+            $("button").click(function(){
+                $("#txt").load("f.txt");
+            });
+
+            $("#name").keyup(function () {
+                console.log("fuck");
+                $("#text1").text($("#name").val())
+            })
+        });
+
+        //var prompt = prompt("this is field box", "default value")
+        //alert(prompt)
+       // var conf  = confirm("this's a conform box")
+    </script>
+</head>
+
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+    <polygon points="100,10 40,180 190,60 10,60 160,180"
+             style="fill:#000000;stroke:#3a8018;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+<embed src="../radial.svg"></embed>
+<div id="txt"><h2>通过 AJAX 改变文本</h2></div>
+<button>改变内容</button>
+<div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+    <img src='/i/demo_wait.gif' width="64" height="64" />
+    <br />加载中 ...
+</div>
+
+<input id="name" >
+<p id="text1">hello</p>
+
+<input type="text"><br>
+<input type="button" value="button"><br>
+<input type="checkbox">
+<input type="color" value="color">
+<input type="datetime">
+<input type="email">
+<input type="password">
+<input type="radio">
+
+</body>
+</html>

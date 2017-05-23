@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo8</title>
+    <comment>设置组件的初始状态，并通过点击事件改变。<p><lockFunc1>要点：通过getInitialState设置一个liked的初始状态，设置一个点击事件来改变这个状态</lockFunc1></p></comment>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var LikeButton = React.createClass({
+            getInitialState : function () {
+                return {liked : false};//添加一个初始状态liked，并设置值为false
+            },
+            handleClick : function () {
+                this.setState({liked : !this.state.liked});//点击事件设置liked状态为当前的非状态
+            },
+            render : function () {
+                var text = this.state.liked ? 'like' : 'do not like';
+                return <p onClick={this.handleClick}>You {text} this!</p>;
+            },
+        })
+
+        ReactDOM.render(
+            <LikeButton/>,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>

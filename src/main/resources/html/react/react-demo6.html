@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo6</title>
+    <comment>定义一个组件，并规定它的属性类型。<lockFunc1><p>要点：<br>设置一个属性，并通过React.PropTypes设置其类型和是否必需；<br>设置getDefaultProps的值</p></lockFunc1></comment>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.js"></script>
+
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+
+        var MyTitle = React.createClass({
+
+            /*
+            propTypes : {
+                title : React.PropTypes.string//.isRequired,//表示该属性是string类型而且必需,用于校验
+            }, */
+            getDefaultProps : function(){//注意这里getDefaultProps是一个函数
+                return {
+                    title: "fuck",
+                };
+            },
+
+            render : function () {
+                return <h1>{this.props.title}</h1>
+            }
+        });
+        ReactDOM.render(
+            //<MyTitle title="John"/>,
+            <MyTitle/>,
+            document.getElementById("example"));
+    </script>
+</body>
+</html>

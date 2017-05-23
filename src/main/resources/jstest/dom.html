@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>domtest</title>
+    <script src="../js/jquery-3.1.1.js"></script>
+</head>
+<script>
+    $(document).ready(function () {
+        $('#test').css({
+            'overflow-x':'auto',
+            'overflow-y':'inherit'
+        })
+    });
+</script>
+<body>
+<iframe frameborder="1" id="test" scrolling="yes" src="http://www.baidu.com" width=500px height=300px></iframe>
+<div align=""></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo5</title>
+    <commen>定义一个组件，遍历显示组件实例的子节点。<p>要点：React.Children.map用法<br></p></commen>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.js"></script>
+
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var NodesList = React.createClass({
+            render : function () {
+                return <ol>{
+
+                        React.Children.map(
+                            this.props.children,//带map的集合，即NodesList实例的子节点
+                            child => <li>{child}</li> )//对子节点的map操作，实际上相当于this.props.children.map
+
+                    //this.props.children.map(child => <li>{child}</li>) //效果同上，但是没有处理children为空（出现undefined异常）的情况
+                    }
+                </ol>
+            }
+        });
+
+        ReactDOM.render(
+            <NodesList>
+                <span>John</span>
+                <p>Tom</p>
+            </NodesList>,
+            document.getElementById("example"));
+    </script>
+</body>
+</html>

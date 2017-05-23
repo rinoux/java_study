@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo4</title>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var HelloMessage = React.createClass({
+            render : function () {
+                return <h1>hello, {this.props.name}</h1>
+            }
+        });
+        ReactDOM.render(
+            <HelloMessage name="Levenstein"/>,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>

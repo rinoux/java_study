@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React-demo12</title>
+    <comment>通过把ajax请求封装到promise，根据请求promise的状态显示，请求成功列出数据</comment>
+    <script src="../../js/react/react.js"></script>
+    <script src="../../js/react/react-dom.js"></script>
+    <script src="../../js/broswer.min.js"></script>
+    <script src="../../js/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div id="repolist"></div>
+    <script type="text/babel">
+        var RepoList = React.createClass({
+            getInitialState() {
+                return {
+                    loading : true,
+                    error : null,
+                    data : null
+                };
+            },
+            componentDidMount() {
+                this.props.promise.then(
+                    value => this.setState({loading: false, data : value}),
+                    error => this.setState({loading: false, error: error})
+                );
+            },
+            render() {
+                if(this.state.loading) {
+                    return <span>loading...</span>
+                } else if(this.state.error != null) {
+                    return <span>Error:{this.state.error.message}</span>
+                } else {
+                    var repos = this.state.data.items;//所有的projects item
+                    var repoList = repos.map(repo => <li>
+                        <a href={repo.html_url}>{repo.name}</a>({repo.stargazers_count} stars)
+                    </li>);
+
+                    return <main>
+                        <h1>most popular js projects in github</h1>
+                        <ol>{repoList}</ol>
+                    </main>;
+                }
+
+
+
+            }
+        });
+        ReactDOM.render(<RepoList promise={$.getJSON("https://api.github.com/search/repositories?q=javascript&sort=stars")}/>, document.getElementById("repolist"));
+    </script>
+</body>
+</html>

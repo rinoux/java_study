@@ -9,7 +9,6 @@ import java.util.concurrent.Semaphore;
  * Created by rinoux on 2017/4/13.
  */
 public class SemaphoreDemo {
-    private static Semaphore semaphore = new Semaphore(5);
     /**
      * 五个线程，信号量为5时，执行是同步的，显示时间一致
      pool-1-thread-4 Thu Apr 13 19:38:26 CST 2017
@@ -27,11 +26,12 @@ public class SemaphoreDemo {
 
      Semaphore的作用是控制获得自身线程的数量
      */
-    private static ExecutorService pool = Executors.newCachedThreadPool();
+
 
     public static void main(String[] args) {
-
-        for (int i = 0; i < 5; i++) {
+        ExecutorService pool = Executors.newCachedThreadPool();
+        Semaphore semaphore = new Semaphore(5);
+        for (int i = 0; i < 10; i++) {
             pool.execute(() -> {
                 try {
                     semaphore.acquire();//获得semaphore
@@ -43,6 +43,5 @@ public class SemaphoreDemo {
                 }
             });
         }
-
     }
 }

@@ -23,29 +23,26 @@ public class CyclicBarrierDemo {
      * 一组线程相互等待直到达到一个公共屏障点（互相等待一起执行），再开始同步执行。
      * CyclicBarrier循环屏障之所以称为循环是因为它是可以重用的
      */
-    static CyclicBarrier cyclicBarrier = new CyclicBarrier(6);
     //CyclicBarrier构造parties设置为6， 若有5个线程调用cyclicBarrier.await的话，那么这5个线程永远再等待不会执行
-    static ExecutorService pool = Executors.newCachedThreadPool();
 
-    public static void main(String[] args) {
-
+    public static void main(String args[]) {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
+        ExecutorService pool = Executors.newCachedThreadPool();
         Random random = new Random();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
+            int finalI = i;
             pool.execute(() -> {
-                int secs = random.nextInt(5);
+                int secs = random.nextInt(10);
                 System.out.println(Thread.currentThread().getName() + " " + new Date() + " run, sleep " + secs + " secs");
                 try {
                     Thread.sleep(secs * 1000);
-                    cyclicBarrier.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
+                    if (finalI % 2 == 0) {
+                        cyclicBarrier.await();
+                    }
+                } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-
                 System.out.println(Thread.currentThread().getName() + " " + new Date() + " runs over");
-
-
             });
         }
     }

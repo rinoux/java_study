@@ -1,5 +1,8 @@
 package cc.rinoux;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by rinoux on 2017/1/10.
  */
@@ -56,5 +59,10 @@ public class Utils {
     public static void main(String[] args) {
         //System.out.println(getLevenshteinDistance("abcd", "abc"));
         System.out.println(gbEncoding("该"));
+    }
+
+
+    public static Map zip(List target, Object... keys) {
+        return null;
     }
 }

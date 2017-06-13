@@ -1,23 +1,28 @@
 package cc.rinoux;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
  * Created by rinoux on 2017/5/19.
  */
 public class TestFind {
-
-    static boolean check(String path, String s) {
-        Pattern pattern = Pattern.compile(path);
-        if (pattern.matcher(s).matches()) {
-            return true;
-        }
-
-        return false;
-    }
-
     public static void main(String[] args) {
-        System.out.println(check("*/.html", "/fr/web/core/session.html"));
+        Integer a = 1;
+        Integer b = 2;
+        Integer c = 3;
+        Integer d = 3;
+        Integer e = 321;
+        Integer f = 321;
+        Long g = 3L;
+
+        System.out.println(c == d);
+        System.out.println(e == f);
+        System.out.println(c == (a + b));
+        System.out.println(c.equals(a + b));
+        System.out.println(g == (a + b));
+        System.out.println(g.equals(a + b));
 
     }
 }

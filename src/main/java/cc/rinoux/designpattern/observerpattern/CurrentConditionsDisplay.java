@@ -35,7 +35,7 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
         CurrentConditionsDisplay display = new CurrentConditionsDisplay(weatherData);
         System.out.println("weather data would changed");
         weatherData.setMeasurements(100, 24, 100);
-        //display.display();
+        display.display();
 
     }
 }

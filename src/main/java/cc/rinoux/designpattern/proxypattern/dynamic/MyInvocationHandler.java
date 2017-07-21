@@ -8,6 +8,14 @@ import java.lang.reflect.Proxy;
  * Created by rinoux on 2017/2/16.
  */
 public class MyInvocationHandler implements InvocationHandler {
+
+    /*
+     * InvocationHandler使用方式：
+     * 1⃣️实现InvocationHandler，并设置要代理的对象，并在invoke设置代理对象方法的扩展
+     * 2⃣️使用，首先new 一个️InvocationHandler的实现
+     * 3⃣️使用Proxy.newProxyInstance之类的方法传入InvocationHandler的实现实例返回代理对象
+     * 4⃣️使用代理对象
+     */
     private Object target;//委托类
 
     public MyInvocationHandler(Object target) {

@@ -7,18 +7,9 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public final class A {
 
-
-    private static String s;
-
-    static {
-        System.out.println(A.class.getClassLoader());
-        s = "static";
-        System.out.println(s);
-    }
-
-
     public static void main(String[] args) throws Exception {
-        System.out.println(A.class.getClassLoader());
-        System.out.println("main");
+        int[] a = new int[] {1, 2, 3};
+
+        System.out.println(a[5]);
     }
 }

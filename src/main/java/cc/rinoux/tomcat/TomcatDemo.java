@@ -29,7 +29,7 @@ public class TomcatDemo {
             File additionWebinfClasses = new File("/WEB-INF/classes");//备用classes路径
             WebResourceRoot resources = new StandardRoot(standardContext);
             resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", additionWebinfClasses.getAbsolutePath(), "/"));
-            standardContext.setResources(resources);
+            //standardContext.setResources(resources);
 
             tomcat.start();
             tomcat.getServer().await();

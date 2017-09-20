@@ -33,7 +33,7 @@ public class RemoteControl {
         onCommands[slot].execute();
     }
 
-    public void offButtonWasPusnhed(int slot) {
+    public void offButtonWasPushed(int slot) {
         offCommands[slot].execute();
     }
 
@@ -44,5 +44,24 @@ public class RemoteControl {
                 "onCommands=" + Arrays.toString(onCommands) +
                 ", offCommands=" + Arrays.toString(offCommands) +
                 '}';
+    }
+
+
+    public static void main(String[] args) {
+        RemoteControl remoteControl = new RemoteControl();
+        Light livingRoomLight = new Light("living room");
+        Light kitchenLight = new Light("kitchen");
+
+        LightOnCommand livingLightOnCommand = new LightOnCommand(livingRoomLight);
+        LightOffCommand livingLightOffCommand = new LightOffCommand(livingRoomLight);
+
+        LightOnCommand kitchenLightOnCommand = new LightOnCommand(kitchenLight);
+        LightOffCommand kitchenLightOffCommand = new LightOffCommand(kitchenLight);
+
+        remoteControl.setCommand(1, livingLightOnCommand, livingLightOffCommand);
+        remoteControl.setCommand(2, kitchenLightOnCommand, kitchenLightOffCommand);
+
+
+        remoteControl.onButtonWasPushed(1);
     }
 }

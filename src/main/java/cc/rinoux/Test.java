@@ -1,5 +1,6 @@
 package cc.rinoux;
 
+import java.io.*;
 import java.net.URL;
 
 /**
@@ -7,26 +8,14 @@ import java.net.URL;
  */
 public class Test {
 
-    public static void main(String[] args) {
-        ClassLoader classLoader = Test.class.getClassLoader();
-        while (classLoader != null) {
-            System.out.println(classLoader);
-            classLoader = classLoader.getParent();
-        }
-        System.out.println(classLoader);
-    }
-
-    private static class AnyRef {
-
-    }
-
-    private static class MyAny extends AnyRef {
-        public static final String s = "mmm";
-
-    }
-
-
-    private static class YouAny extends AnyRef {
-        public static final String s = "yyyy";
+    public static void main(String[] args) throws IOException {
+        String fileName = "text.txt";
+        FileWriter writer = new FileWriter(fileName, true);
+        InputStream data = new ByteArrayInputStream("nnnnnnn".getBytes());
+        RandomAccessFile raf = new RandomAccessFile(fileName, "rw");
+        raf.seek(raf.length());
+        raf.write("xxxxxx".getBytes());
+        raf.close();
+        data.close();
     }
 }

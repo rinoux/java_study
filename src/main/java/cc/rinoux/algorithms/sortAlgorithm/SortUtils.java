@@ -1,4 +1,4 @@
-package cc.rinoux.sortAlgorithm;
+package cc.rinoux.algorithms.sortAlgorithm;
 
 /**
  * Created by rinoux on 2017/3/24.

@@ -1,4 +1,4 @@
-package cc.rinoux.lang.Integer;
+package cc.rinoux.base.Integer;
 
 /**
  * Created by rinoux on 2017/1/3.

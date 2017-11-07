@@ -1,4 +1,4 @@
-package cc.rinoux.classloader;
+package cc.rinoux.base.classloader;
 
 /**
  * Created by rinoux on 2017/1/4.

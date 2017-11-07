@@ -1,4 +1,4 @@
-package cc.rinoux.classloader;
+package cc.rinoux.base.classloader;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +29,7 @@ public class ClassLoaderDemo {
             }
         };
 
-        Object obj = myLoader.loadClass("cc.rinoux.classloader.ClassLoaderDemo").newInstance();
+        Object obj = myLoader.loadClass("cc.rinoux.base.classloader.ClassLoaderDemo").newInstance();
 
         System.out.println(obj.getClass());
         /**
@@ -47,7 +47,7 @@ public class ClassLoaderDemo {
                 return super.loadClass(name);//直接调用启动类加载器
             }
         };
-        Object obj2 = classLoader.loadClass("cc.rinoux.classloader.ClassLoaderDemo").newInstance();
+        Object obj2 = classLoader.loadClass("cc.rinoux.base.classloader.ClassLoaderDemo").newInstance();
 
         System.out.println(obj2 instanceof ClassLoaderDemo);
     }

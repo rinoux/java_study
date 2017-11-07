@@ -1,4 +1,4 @@
-package cc.rinoux.filewatch;
+package cc.rinoux.file.commonio;
 
 import org.apache.commons.io.monitor.FileAlterationListener;
 import org.apache.commons.io.monitor.FileAlterationObserver;

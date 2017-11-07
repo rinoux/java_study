@@ -1,12 +1,10 @@
-package cc.rinoux.filewatch;
+package cc.rinoux.file.commonio;
 
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.monitor.FileAlterationListener;
+import cc.rinoux.file.commonio.CustomFileAlterationListener;
 import org.apache.commons.io.monitor.FileAlterationMonitor;
 import org.apache.commons.io.monitor.FileAlterationObserver;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;

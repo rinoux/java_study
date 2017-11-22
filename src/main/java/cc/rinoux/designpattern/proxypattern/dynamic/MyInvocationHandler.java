@@ -24,7 +24,7 @@ public class MyInvocationHandler implements InvocationHandler {
 
     /**
      *
-     * @param proxy 所代理的真实对象（委托对象）
+     * @param proxy 所代理的真实对象（委托对象）生存的新对象
      * @param method 所要调用的真实对象方法的Method对象
      * @param args 调用真实对象时传入的参数
      * @return

@@ -10886,7 +10886,7 @@ var ReactElement = function (type, key, ref, self, source, owner, props) {
 
     // To make comparing ReactElements easier for testing purposes, we make
     // the validation flag non-enumerable (where possible, which should
-    // include every environment we run tests in), so the test framework
+    // include every environment we run tests in), so the test ehcache
     // ignores it.
     if (canDefineProperty) {
       Object.defineProperty(element._store, 'validated', {

@@ -8,13 +8,13 @@ public class RapidSort {
     private static int partition(int[] array, int low, int high) {
         int flag = low;
         if(array[flag] > array[high]) {
-            DemoTools.swapPosition(array, flag, high);
+            swapPosition(array, flag, high);
         }
         if(array[low] > array[high]) {
-            DemoTools.swapPosition(array, low, high);
+            swapPosition(array, low, high);
         }
         if(array[flag] > array[low]) {
-            DemoTools.swapPosition(array, flag, low);
+            swapPosition(array, flag, low);
         }
         int key = array[low];
 
@@ -33,6 +33,16 @@ public class RapidSort {
         return high;
     }
 
+
+    public static void swapPosition(int[] array, int a, int b) {
+        if (array.length > 0) {
+            int temp = array[a];
+            array[a] = array[b];
+            array[b] = temp;
+
+
+        }
+    }
     private static void sort(int[] array, int low, int high) {
         if(low >= high){
             return ;

@@ -1,7 +1,7 @@
 package cc.rinoux;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * Created by rinoux on 2017/1/10.
@@ -26,7 +26,7 @@ public class Utils {
                 if (currentA == currentB) {
                     distance[i][j] = distance[i - 1][j - 1];
                 } else {
-                    distance[i][j] = min(distance[i][j - 1], distance[i - 1][j], distance[i -1][j - 1]) + 1;
+                    distance[i][j] = min(distance[i][j - 1], distance[i - 1][j], distance[i - 1][j - 1]) + 1;
                 }
             }
         }
@@ -56,13 +56,26 @@ public class Utils {
         return unicodeBytes;
     }
 
+    static int sum = 0;
     public static void main(String[] args) {
         //System.out.println(getLevenshteinDistance("abcd", "abc"));
-        System.out.println(gbEncoding("该"));
+        System.out.println(new Date());
+
+        List<Integer> integerList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            integerList.add(i);
+        }
+
+
+        integerList.forEach(i -> sum += i);
+
+        System.out.println(sum);
     }
 
 
     public static Map zip(List target, Object... keys) {
         return null;
     }
+
+
 }

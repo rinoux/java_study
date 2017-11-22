@@ -27,7 +27,7 @@ public class FileLockTest {
 
 
             //第三个参数是文件锁是否共享，若系统不支持，将会采用排他锁
-            //fileLock = channel.lock(0L, Long.MAX_VALUE, true);
+            fileLock = channel.lock(0L, Long.MAX_VALUE, true);
             fileLock = channel.lock();
             System.out.println("当前锁类型：" + (fileLock.isShared() ? "共享锁" : "排他锁"));
             System.out.println(System.currentTimeMillis() + " 进程:" + pid + "获得了锁" + fileLock.toString());

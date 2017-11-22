@@ -2,7 +2,6 @@ package cc.rinoux.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -33,7 +32,7 @@ public class NIOServer {
 
         //初始化selector
         selector = Selector.open();
-        //注册selector到socket
+        //注册ServerSocketChannel到selector，并关注accept事件
         server.register(selector, SelectionKey.OP_ACCEPT);
         System.out.println("NIO 服务已经开始监听" + port);
     }

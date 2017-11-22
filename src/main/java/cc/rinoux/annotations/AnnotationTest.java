@@ -6,7 +6,6 @@ import java.lang.reflect.Field;
  * Created by rinoux on 2017/3/15.
  */
 public class AnnotationTest {
-    @Plugin(type = "FXXXXX")
     public String pluginName;
 
 

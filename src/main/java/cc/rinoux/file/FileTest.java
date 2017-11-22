@@ -1,13 +1,18 @@
 package cc.rinoux.file;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
 
 public class FileTest {
     public static void main(String[] args) throws IOException {
         File file = new File("fth/test.txt");
         File dir = new File("fth/test/");
+
+
+        FileChannel channel = new FileInputStream(file).getChannel();
         file.createNewFile();
 
         dir.mkdirs();
